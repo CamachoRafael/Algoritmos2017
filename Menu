@@ -1,0 +1,83 @@
+// menu.cpp : Defines the entry point for the console application.
+//
+//Rafael Camacho
+
+#include "stdafx.h"
+#include <iostream>
+#include "stdlib.h"
+#include "conio.h"
+
+using namespace std;
+
+//Prototipo de funciones
+float POTEN(float X,int Y);
+int FAC(int N);
+float serie(int X,int N);
+
+//cuerpo principal
+void main ()
+
+{ int opcion,base,exp,n,facto;
+  float poten,s;
+  do
+  {cout<<"Menu \n";
+   cout<<"1.-Potencia de un numero. \n";
+   cout<<"2.-factoroial de un numero. \n";
+   cout<<"3.-Serie \n";
+   cout<<"0.-Salir \n";
+   cout<<"Opcion: ";
+   cin>>opcion;
+   switch(opcion)
+   {
+    case 1: cout<<"Ingrese la base: ";
+			cin>>base;
+			cout<<"ingrese el exponente: ";
+			cin>>exp;
+			poten=POTEN(base,exp);
+			cout<<"La potencia de "<<base<<" elevado a "<<exp<<" es: "<<poten;
+			break;
+	case 2: ; cout<<"Ingrese el valor de N: ";
+			  cin>>n;
+			  facto=FAC(n);
+			  cout<<"El factorial de "<<n<<" es: "<<facto;
+			  break;
+	case 3: cout<<"Ingrese el valor de X: ";
+		    cin>>base;
+			cout<<"Ingrese el valor de Y: ";
+			cin>>exp;
+			s= serie(base,exp);
+			cout<<"La suma de la serie es: "<<s;
+			break;
+	case 0: cout<<"salir\n";
+			break;
+	default: cout<<"Opcion invalida";
+  }
+   getch();
+   system("cls");
+  }while(opcion!=0);
+
+   getch ();
+}
+
+float POTEN(float X,int Y )
+{ int i; float p=1;
+  for(i=1;i<=Y;i++)
+	 {p=p*X;}
+  return p;
+}
+
+int FAC(int n)
+{int i,p=1;
+ for(i=1;i<=n;i++)
+    {p=p*i;}
+ return p;
+}
+
+float serie(int X, int N)
+{float s=0; // Acumulador de suma
+ int i;
+ for(i=1;i<=N;i++)
+    {s=s+POTEN(X,i)/FAC(i);}
+ return s;
+}
+
