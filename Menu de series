@@ -1,0 +1,94 @@
+// seriepar.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std;
+
+//prototipos
+int par(int N);
+int impar(int N);
+int parneg(int N);
+int imparpos(int N);
+
+//programa principal
+void main()
+{int op,N,S;
+ do
+  {cout<<"Menu \n";
+   cout<<"1.- Serie par \n";
+   cout<<"2.- Serie impar\n";
+   cout<<"3.- Serie par alternando signos \n";
+   cout<<"4.- Serie impar alternando signos \n";
+   cout<<"0.- SALIR\n\n";
+   cout<<"OPCION: ";
+   cin>>op;
+   switch(op)
+         {case 1: {cout<<"Ingrese el numero limite: ";
+		           cin>>N;
+				   S=par(N);
+				   cout<<"La suma de la serie es: "<<S<<"\n\n";
+				   break;}
+		  case 2: {cout<<"Ingrese el nummero limite: ";
+			       cin>>N;
+				   S=impar(N);
+				   cout<<"La suma impar es: "<<S<<"\n\n";
+				   break;}
+		  case 3: {cout<<"Ingrese el numero limite: ";
+			       cin>>N;
+				   S=parneg(N);
+				   cout<<"La suma par es: "<<S<<"\n\n";
+				   break;}
+		  case 4: {cout<<"Ingrese el numero limite: ";
+			       cin>>N;
+				   S=imparpos(N);
+				   cout<<"La suma impar es: "<<S<<"\n\n";
+				   break;}
+		  case 0: cout<<"\nSalir\n";
+			      break;
+		  default: cout<<"Opcion invalida\n";
+         }
+
+         getch();
+
+		 system("cls");
+  }
+ while(op!=0);
+getch();
+}
+
+//funciones
+int par(int N)
+{int i,s=0;
+ for(i=2;i<=N;i=i+2)
+	 s=s+i;
+ return s;
+}
+
+int impar(int N)
+{int i,s=0;
+ for(i=1;i<=N;i=i+2)
+	 s=s+i;
+ return s;
+}
+
+int parneg(int N)
+{int i,s=0,t=-1;
+ for(i=2;i<=N;i=i+2)
+	{s=s+i*t;
+     t=t*(-1);    
+    }
+ return s;
+} 
+
+int imparpos(int N)
+{int i,s=0,t=1;
+ for(i=1;i<=N;i=i+2)
+    {s=s+i*t;
+     t=t*(-1);
+    }
+ return s;
+}
