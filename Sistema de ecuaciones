@@ -1,0 +1,42 @@
+// solsisec.cpp : Defines the entry point for the console application.
+//Rafael Camacho
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+//#include "stdlib.h"
+
+using namespace std;
+
+//PROTOTIPO
+void solucion1(float o,float p,float q,float r,float s,float t,float &m,float &n);
+
+void main()
+{float A,B,C,D,E,F,X,Y;
+ cout<<"Solucion para un sistema tipo\nAx+By=C\nDx+Ey=F";
+ do
+ {cout<<"\n Ingrese el valor de A diferente de 0: ";
+ cin>>A;
+ }
+ while(A==0);
+ cout<<"\n Ingrese el valor de B: ";
+ cin>>B;
+ cout<<"\n Ingrese el valor de C: ";
+ cin>>C;
+ cout<<"\n Ingrese el valor de D: ";
+ cin>>D;
+ cout<<"\n Ingrese el valor de E: ";
+ cin>>E;
+ cout<<"\n Ingrese el valor de F: ";
+ cin>>F;
+ solucion1(A,B,C,D,E,F,X,Y);
+ cout<<"\n El valor de X es: "<<X;
+ cout<<"\n El vlaor de Y es: "<<Y;
+ getch();
+}
+
+void solucion1(float o,float p,float q,float r,float s,float t,float &m,float &n)
+{n= ((o*t)-(q*r)) / ((o*s)-(p*r));
+ m= (q-p*n) /o;
+}
