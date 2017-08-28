@@ -1,0 +1,44 @@
+// combinatoria.cpp : Defines the entry point for the console application.
+//
+//Rafael Camacho
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std;
+
+//Prototipo
+int FAC(int n);
+
+
+void main()
+{int r,n,p,A,B,D;
+ float C;
+ do
+ {
+ cout<<"Ingrese los valores para la combinatoria: \n";
+ cout<<"n: ";
+ cin>>n;
+ cout<<"r: ";
+ cin>>r;
+ getch();
+ system("cls");
+ }
+ while(n<=r);
+ p=n-r;
+ C=(FAC(n))/(FAC(r)*FAC(p));
+ cout<<"\nLa combinatoria es: "<<C;
+
+
+ _getch();
+}
+
+//Funciones
+int FAC(int n)
+{int i,p=1;
+ for(i=1;i<=n;i++)
+    {p=p*i;}
+ return p;
+}
