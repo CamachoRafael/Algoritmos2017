@@ -1,0 +1,80 @@
+//Rafael Camacho Céspedes
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 10
+
+
+using namespace std;
+
+//prototipos
+void cargarmat(int mat[MAX][MAX],int n,int m);
+void mostrarmat(int mat[MAX][MAX],int n,int m);
+void ordenarmat(int mat[MAX][MAX],int n,int m);
+
+
+
+void main()
+{
+	int n,m, mat[MAX][MAX];
+	cout<<"ingrese el tamaño de la fila: ";
+	cin>>n;
+	cout<<"Ingrese el tamaño de la columna: ";
+	cin>>m;
+	cargarmat(mat,n,m);
+	ordenarmat(mat,n,m);
+	mostrarmat(mat,n,m);
+	getch();
+}
+
+
+//Funciones
+
+void cargarmat(int mat[MAX][MAX],int n,int m)
+{
+	int i,j;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			cout<<"M["<<i<<"]["<<j<<"]: ";
+			cin>>mat[i][j];
+		}
+	}
+}
+
+void mostrarmat(int mat[MAX][MAX],int n,int m)
+{
+	int i,j;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			cout<<"M["<<i<<"]["<<j<<"]: "<<mat[i][j]<<"\t";
+		}
+		cout<<"\n";
+	}
+}
+
+void ordenarmat(int mat[MAX][MAX],int n,int m)
+{
+	int i,j,k,aux;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m-1;j++)
+		{
+			for(k=1;k<m;k++)
+			{
+				if(mat[i][j]>mat[i][k])
+				{
+					aux=mat[i][k];
+					mat[i][k]=mat[i][j];
+					mat[i][j]=aux;
+
+				}
+			}
+		}
+	}
+}
